@@ -26,7 +26,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "graphql": "^0.10.3",
-    "graphql-tools": "^4.0.6"
+    "graphql-tools": "^4.0.6",
+    "mongoose": "^5.8.12"
   }
 }

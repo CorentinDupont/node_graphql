@@ -1,4 +1,4 @@
-import { fakeDatabase as database } from "../FakeDatabase";
+import { db } from "../models"
 import { GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString } from 'graphql';
 import { PostType } from './post';
 import { AuthorType } from "./author";
@@ -8,7 +8,7 @@ export const QueryType = new GraphQLObjectType({
   fields: () => ({
     posts: { 
       type: new GraphQLList(PostType),
-      resolve: root => database.getBlogPosts()
+      resolve: root => db.Post.find()
     },
 
     post: {
@@ -16,7 +16,7 @@ export const QueryType = new GraphQLObjectType({
       args: {
         id: { type: GraphQLInt },
       },
-      resolve: (root, args) => database.getBlogPost(args.id)
+      resolve: (root, args) => db.Post.findById(args.id)
     },
 
     author: {
@@ -24,7 +24,7 @@ export const QueryType = new GraphQLObjectType({
       args: {
         id: { type: GraphQLString },
       },
-      resolve: (root, args) => database.getAuthor(args.id)
+      resolve: (root, args) => db.Author.findById(args.id)
     }
   })
 });
