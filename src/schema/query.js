@@ -2,6 +2,7 @@ import { db } from "../models"
 import { GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString } from 'graphql';
 import { PostType } from './post';
 import { AuthorType } from "./author";
+import { ObjectId } from 'bson';
 
 export const QueryType = new GraphQLObjectType({
   name: 'Query',
@@ -14,7 +15,7 @@ export const QueryType = new GraphQLObjectType({
     post: {
       type: PostType,
       args: {
-        id: { type: GraphQLInt },
+        id: { type: GraphQLString },
       },
       resolve: (root, args) => db.Post.findById(args.id)
     },
