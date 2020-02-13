@@ -3,14 +3,12 @@ import request from 'supertest'
 
 describe('GET /', () => {
   let response
+
   test('verify send many posts has authors', async () =>{
     const query_string = `{
       posts{
-      title,
-      author {
-          name  
+        title
       }
-    }
     }`
     response  = await  request(app)
       .post('/graphql').send({ query:  query_string})
