@@ -1,4 +1,4 @@
-import { fakeDatabase as database } from "./FakeDatabase";
+import { fakeDatabase as database } from "../FakeDatabase";
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import { AuthorType } from './author';
 

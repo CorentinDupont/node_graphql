@@ -1,5 +1,6 @@
-import { fakeDatabase as database } from "./FakeDatabase";
+import { fakeDatabase as database } from "../FakeDatabase";
 import { GraphQLObjectType, GraphQLList } from 'graphql';
+import { PostType } from './post';
 
 export const QueryType = new GraphQLObjectType({
   name: 'Query',
